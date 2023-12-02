@@ -9,6 +9,8 @@ st.header("Sales Predictor")
 
 #%% Variables Initialization
 
+model_file = 'sales_predictor_1.sav'
+
 # Number of features
 n_features = 3
 
@@ -31,7 +33,27 @@ feat_3_val = feat_3.selectbox("Feature 3", options=["A","B","C"])
 ''' 
 Requirements : 
 - sklearn model already trained
-- list of features wich match with the model features
+- list of features which match with the model features
 '''
-model =
-predictions = 
+
+''' Example to save and load a model
+
+model = LogisticRegression()
+model.fit(X_train, Y_train)
+
+# save the model to disk
+filename = 'finalized_model.sav'
+pickle.dump(model, open(filename, 'wb'))
+ 
+# some time later...
+ 
+# load the model from disk
+loaded_model = pickle.load(open(filename, 'rb'))
+result = loaded_model.score(X_test, Y_test)
+print(result)
+'''
+loaded_model = pickle.load(open(model_file, 'rb'))
+predictions = loaded_model.predict([[feat_1_val, feat_2_val, feat_3_val]])
+
+#%% Display the predictions
+st.write("Predictions : ", predictions)
