@@ -52,8 +52,8 @@ loaded_model = pickle.load(open(filename, 'rb'))
 result = loaded_model.score(X_test, Y_test)
 print(result)
 '''
-loaded_model = pickle.load(open(model_file, 'rb'))
-predictions = loaded_model.predict([[feat_1_val, feat_2_val, feat_3_val]])
+#loaded_model = pickle.load(open(model_file, 'rb'))
+#predictions = loaded_model.predict([[feat_1_val, feat_2_val, feat_3_val]])
 
 #%% Display the predictions
-st.write("Predictions : ", predictions)
+st.write("Predictions : ")
